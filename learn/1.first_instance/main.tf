@@ -1,12 +1,12 @@
 resource "google_compute_instance" "instance-test" {
-  project      = "als-gcloud-01"
+  project      = var.project_id
   name         = "instance-test"
-  machine_type = "e2-micro"
+  machine_type = var.machine_type
   zone         = "us-central1-a"
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-11"
+      image = var.image
     }
   }
 
