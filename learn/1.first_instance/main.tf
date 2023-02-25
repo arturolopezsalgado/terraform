@@ -1,8 +1,8 @@
 resource "google_compute_instance" "instance-test" {
-  project      = var.project_id
+  project      = var.project_id[var.environment]
   count        = length(var.name_count)
   name         = "instance-list-${count.index + 1}"
-  machine_type = var.machine_type
+  machine_type = var.machine_type[var.environment]
   zone         = "us-central1-a"
 
   boot_disk {

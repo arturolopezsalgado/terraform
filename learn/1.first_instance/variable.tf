@@ -1,5 +1,14 @@
+variable "environment" {
+  default = "dev"
+}
+
 variable "project_id" {
-  default = "als-gcloud-01"
+  type = map(string)
+  default = {
+    "dev" = "als-gcloud-01"
+    "qas" = "als-gcloud-01"
+    "prd" = "als-gcloud-01"
+  }
 }
 
 variable "region" {
@@ -11,7 +20,12 @@ variable "zone" {
 }
 
 variable "machine_type" {
-  default = "e2-micro"
+  type = map(string)
+  default = {
+    "dev" = "e2-micro"
+    "qas" = "e2-micro"
+    "prd" = "e2-micro"
+  }
 }
 
 variable "image" {
