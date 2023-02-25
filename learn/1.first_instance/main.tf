@@ -21,3 +21,15 @@ resource "google_compute_instance" "instance-test" {
     scopes = ["userinfo-email", "compute-ro", "storage-ro"]
   }
 }
+
+output "project_id" {
+  value = "${google_compute_instance.instance-test.project}"
+}
+
+output "instance_name" {
+  value = "${google_compute_instance.instance-test.name}"
+}
+
+output "zone" {
+  value = "${google_compute_instance.instance-test.zone}"
+}
