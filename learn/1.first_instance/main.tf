@@ -1,6 +1,7 @@
 resource "google_compute_instance" "instance-test" {
   project      = var.project_id
-  name         = "instance-test"
+  count        = length(var.name_count)
+  name         = "instance-list-${count.index + 1}"
   machine_type = var.machine_type
   zone         = "us-central1-a"
 
@@ -22,14 +23,3 @@ resource "google_compute_instance" "instance-test" {
   }
 }
 
-output "project_id" {
-  value = "${google_compute_instance.instance-test.project}"
-}
-
-output "instance_name" {
-  value = "${google_compute_instance.instance-test.name}"
-}
-
-output "zone" {
-  value = "${google_compute_instance.instance-test.zone}"
-}

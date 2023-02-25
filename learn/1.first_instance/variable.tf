@@ -17,3 +17,7 @@ variable "machine_type" {
 variable "image" {
   default = "debian-cloud/debian-11"
 }
+
+variable "name_count" {
+  default = ["server1", "server2", "server3"]
+}
