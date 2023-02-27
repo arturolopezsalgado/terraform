@@ -2,8 +2,12 @@ resource "google_compute_instance" "instance-test" {
   project      = var.project_id[var.environment]
   count        = length(var.name_count)
   name         = "instance-list-${count.index + 1}"
-  machine_type = var.machine_type[var.environment]
   zone         = "us-central1-a"
+# machine tyoe based on "map"
+  # machine_type = var.machine_type[var.environment]
+
+# machine tyoe based on "if" statement
+machine_type = "${var.ifenvironment != "production" ? var.ifmachine_dev : var.ifmachine_prd}"
 
   boot_disk {
     initialize_params {

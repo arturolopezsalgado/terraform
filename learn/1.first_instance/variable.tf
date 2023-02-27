@@ -35,3 +35,17 @@ variable "image" {
 variable "name_count" {
   default = ["server1", "server2", "server3"]
 }
+
+# Working with "if" statement
+variable "ifenvironment" {
+  default = "production"
+}
+
+variable "ifmachine_dev" {
+  default = "e2-micro"
+}
+
+variable "ifmachine_prd" {
+  default = "e2-micro"
+}
+
